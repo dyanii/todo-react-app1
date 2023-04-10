@@ -1,5 +1,5 @@
 import React from 'react';
-import {ListItem, ListItemText, InputBase, Checkbox} from "@material-ui/core";
+import { ListItem, ListItemText, InputBase, Checkbox } from "@material-ui/core";
 
 class Todo extends React.Component {
     constructor(props){
@@ -8,25 +8,26 @@ class Todo extends React.Component {
     }
 
     render(){
+        const item= this.state.item;
         return(
-            <div className='Todo'>
-                <input
-                type="checkbox"
-                id={this.state.item.id}
-                name={this.state.item.id}
-                checked={this.state.item.done}
-                />
-                <label id={this.state.item.id}>{this.state.item.title}</label>
-                {/*
-                    comment here 중괄호를 둘러쌈
-                */}
-                {
-                    //comment1
-                    //comment2 슬래시는 한줄씩
-                    //comment3
-                }
-            </div>
+            <ListItem> 
+                <Checkbox checked={item.done}/>
+                <ListItemText>
+                <InputBase
+                    inputProps={{ "aria-label": "naked"}}
+                    type= "text"
+                    id={item.id}
+                    name={item.id}
+                    value={item.title}
+                    multiline={true}
+                    fullWidth={true}
+                    />
+                </ListItemText>
+            </ListItem>
+               
         );
+        
+        
     }
 
 }
